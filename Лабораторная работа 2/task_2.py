@@ -40,11 +40,10 @@ class Library:
     def get_next_book_id(self):
         return len(self.books) + 1
 
-    def get_index_by_book_id(self, id__:int):
-        list_ = list(enumerate(self.books))
-        for book in list_:
-            if book[1].id_ == id__:
-                return book[0]
+    def get_index_by_book_id(self, id__: int):
+        for i, book in enumerate(self.books):
+            if book.id_ == id__:
+                return i
             raise ValueError("Книги с запрашиваемым id не существует")
 
 if __name__ == '__main__':
