@@ -26,11 +26,7 @@ class PaperBook(Book):
 
     def __init__(self, name: str, author: str, pages: int):
         super().__init__(name=name, author=author)
-        if not isinstance(pages, int):
-            raise TypeError("Количество страниц в книге должно быть целым числом")
-        if pages <= 0:
-            raise ValueError("Количество страниц в книге должно быть целым положительным числом")
-        self._pages = pages
+        self.pages = pages
 
     def __repr__(self):
         return f"{self.__class__.__name__}(name={self._name!r}, author={self._author!r}, pages={self._pages})"
@@ -52,11 +48,7 @@ class AudioBook(Book):
 
     def __init__(self, name: str, author: str, duration: float):
         super().__init__(name, author)
-        if not isinstance(duration, float):
-            raise TypeError("Продолжительность аудиокниги должна быть числом")
-        if duration <= 0:
-            raise ValueError("Продолжительность аудиокниги должна быть больше нуля")
-        self._duration = duration
+        self.duration = duration
 
     def __repr__(self):
         return f"{self.__class__.__name__}(name={self._name!r}, author={self._author!r}, duration={self._duration})"
